@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "522730823102",
+    "firebase_url": "https://gaco-danu.firebaseio.com",
+    "project_id": "gaco-danu",
+    "storage_bucket": "gaco-danu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:522730823102:android:1943ca6238757130",
+        "android_client_info": {
+          "package_name": "mobile.gaco.com.gaco"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "522730823102-urmhrrhrm11dm3se89rd2ppu86l54nks.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mobile.gaco.com.gaco",
+            "certificate_hash": "dc9a8c71c9d956f9edfd4f06e2f9976830d935f1"
+          }
+        },
+        {
+          "client_id": "522730823102-ek57mfp26qcgdlpeosd9agtch252tklv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFYysL51Eu-Cn-qKYrJAZT9SqK1jM8gQk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "522730823102-ek57mfp26qcgdlpeosd9agtch252tklv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

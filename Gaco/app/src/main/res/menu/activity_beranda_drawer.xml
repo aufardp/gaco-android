@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menuGonline"
+            android:title="Game Online" />
+        <item
+            android:id="@+id/menuGoffline"
+            android:title="Game Offline" />
+        <item
+            android:id="@+id/menuTekno"
+            android:title="Tekno Tren" />
+        <item
+            android:id="@+id/menuGear"
+            android:title="Gear Gaming" />
+    </group>
+
+    <item android:title="Komunitas">
+        <menu>
+            <item
+                android:id="@+id/menuDota"
+                android:title="Dota 2" />
+            <item
+                android:id="@+id/menuPUBG"
+                android:title="PUBG Indonesia" />
+        </menu>
+    </item>
+
+    <item android:title="FAQ">
+        <menu>
+            <item
+                android:id="@+id/menuCS"
+                android:title="Contact Center"/>
+            <item
+                android:id="@+id/menuAbout"
+                android:title="About"/>
+        </menu>
+    </item>
+
+</menu>

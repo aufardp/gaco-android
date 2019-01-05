@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarPost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBiruSeger">
+    </android.support.v7.widget.Toolbar>
+
+    <EditText
+        android:id="@+id/txtJudul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/btnChoose"
+        android:layout_below="@id/toolbarPost"
+        android:layout_centerHorizontal="true"
+        android:hint="Masukkan Judul"
+        android:layout_marginStart="16dp"/>
+
+    <Button
+        android:id="@+id/btnChoose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbarPost"
+        android:text="Choose File"/>
+
+    <EditText
+        android:id="@+id/txtIsi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/txtJudul"
+        android:hint="Tuangkan Isi Pikiran Anda .."
+        android:layout_marginStart="5dp"/>
+
+    <ImageView
+        android:id="@+id/ivView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/txtIsi"
+        android:layout_above="@id/progressBar"
+        android:layout_marginTop="16dp"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnUpload"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="16dp"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btnUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:text="upload"/>
+
+    <TextView
+        android:id="@+id/tvShowUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnUpload"
+        android:layout_alignBottom="@id/btnUpload"
+        android:layout_marginStart="25dp"
+        android:layout_toEndOf="@id/btnUpload"
+        android:text="Jump to the Post"
+        android:textSize="16sp"
+        android:gravity="center"/>
+
+
+
+</RelativeLayout>
