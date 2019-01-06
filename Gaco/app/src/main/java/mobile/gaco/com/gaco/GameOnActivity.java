@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameOnActivity extends AppCompatActivity implements AdapterGon.OnItemClickListener {
+public class GameOnActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private AdapterGon adapterGon;
@@ -49,7 +49,7 @@ public class GameOnActivity extends AppCompatActivity implements AdapterGon.OnIt
                 }
                 adapterGon = new AdapterGon(GameOnActivity.this, mUpload);
                 recyclerView.setAdapter(adapterGon);
-                adapterGon.setOnItemClickListener(GameOnActivity.this);
+                //adapterGon.setOnItemClickListener(GameOnActivity.this);
                 progressBarGon.setVisibility(View.INVISIBLE);
             }
 
@@ -62,9 +62,9 @@ public class GameOnActivity extends AppCompatActivity implements AdapterGon.OnIt
         });
     }
 
-    @Override
+    /*@Override
     public void onItemClick(int position) {
         Intent detail = new Intent(this, DetailGonActivity.class);
         
-    }
+    }*/
 }

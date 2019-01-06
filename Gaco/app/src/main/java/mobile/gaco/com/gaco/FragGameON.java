@@ -45,6 +45,8 @@ public class FragGameON extends Fragment {
     private FirebaseAuth auth;
     private String currentUserId;
 
+    private List<Upload> mUploads;
+
     /*private static final String TAG = FragGameON.class.getSimpleName();
     private RecyclerView GonRecyclerview;
     private LinearLayoutManager linearLayoutManager;
@@ -86,20 +88,20 @@ public class FragGameON extends Fragment {
             @Override
             protected void onBindViewHolder(@NonNull final GameOnViewholder holder, int position, @NonNull Upload model) {
                 final String post = getRef(position).getKey();
-                //final Upload uploadCurrent = mUploads.get(position);
+                final Upload uploadCurrent = mUploads.get(position);
 
                 databaseRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.hasChild("uploads")){
+                        /*if (dataSnapshot.hasChild("uploads")){
                             String image = dataSnapshot.child("imageUrl").getValue().toString();
                             String nama = dataSnapshot.child("name").getValue().toString();
 
                             holder.tvGon.setText(nama);
                             Picasso.with(getContext()).load(image).into(holder.ivGon);
-                        }
+                        }*/
 
-                        /*for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                             Upload upload = snapshot.getValue(Upload.class);
                             mUploads.add(upload);
 
@@ -110,7 +112,7 @@ public class FragGameON extends Fragment {
                                     .centerCrop()
                                     .into(holder.ivGon);
 
-                        }*/
+                        }
 
                         mProgressBarCircle.setVisibility(View.INVISIBLE);
                     }
