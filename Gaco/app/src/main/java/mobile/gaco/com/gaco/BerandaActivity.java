@@ -109,7 +109,8 @@ public class BerandaActivity extends AppCompatActivity
 
         switch (itemId){
             case R.id.menuGonline:
-                startActivity(new Intent(BerandaActivity.this, GameOnActivity.class));
+                //startActivity(new Intent(BerandaActivity.this, GameOnActivity.class));
+                fragment = new FragGameON();
                 break;
             case R.id.menuGoffline:
                 fragment = new FragGameOff();

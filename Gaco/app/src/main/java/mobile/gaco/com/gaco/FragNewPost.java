@@ -115,7 +115,7 @@ public class FragNewPost extends AppCompatActivity {
                 && data != null && data.getData() != null){
             imageUri = data.getData();
 
-            Picasso.with(this).load(imageUri).into(ivView);
+            Picasso.get().load(imageUri).into(ivView);
         }
     }
 
@@ -186,7 +186,7 @@ public class FragNewPost extends AppCompatActivity {
     }
 
     private void openImagesActivity(){
-        Intent intent = new Intent(FragNewPost.this, GameOnActivity.class);
+        Intent intent = new Intent(FragNewPost.this, BerandaActivity.class);
         startActivity(intent);
     }
 

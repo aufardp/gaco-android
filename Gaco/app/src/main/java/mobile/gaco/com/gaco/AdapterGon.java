@@ -37,7 +37,7 @@ public class AdapterGon extends RecyclerView.Adapter<AdapterGon.GonHolder> {
     public void onBindViewHolder( GonHolder holder, int position) {
         Upload uploadCurrent = mUploads.get(position);
         holder.tvGon.setText(uploadCurrent.getJudul());
-        Picasso.with(mContext)
+        Picasso.get()
                 .load(uploadCurrent.getImageUrl())
                 .placeholder(R.mipmap.ic_launcher)
                 .fit()
@@ -51,14 +51,17 @@ public class AdapterGon extends RecyclerView.Adapter<AdapterGon.GonHolder> {
     }
 
     public class GonHolder extends RecyclerView.ViewHolder{
-        public TextView tvGon;
-        public ImageView ivGon;
+        public TextView tvGon, tvJudulGon, tvIsiGon;
+        public ImageView ivGon, ivDetailGon;
 
         public GonHolder(View v){
             super(v);
 
             tvGon = v.findViewById(R.id.tvGon);
             ivGon = v.findViewById(R.id.ivGon);
+            tvJudulGon = v.findViewById(R.id.tv_judul_Gon);
+            tvIsiGon = v.findViewById(R.id.tv_isi_Gon);
+            ivDetailGon = v.findViewById(R.id.iv_detail_Gon);
 
         }
     }
@@ -71,5 +74,6 @@ public class AdapterGon extends RecyclerView.Adapter<AdapterGon.GonHolder> {
     public void setOnItemClickListener(ClickListener listener){
         itemClickListener = listener;
     }
+
 
 }

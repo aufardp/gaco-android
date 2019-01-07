@@ -1,6 +1,7 @@
 package mobile.gaco.com.gaco;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -44,7 +45,7 @@ public class FragGameON extends Fragment {
 
     private FirebaseAuth auth;
     private String currentUserId;
-
+    private Context context;
     private List<Upload> mUploads;
 
     /*private static final String TAG = FragGameON.class.getSimpleName();
@@ -65,11 +66,13 @@ public class FragGameON extends Fragment {
 
         GonList = viewGon.findViewById(R.id.rv_gon);
         GonList.setLayoutManager(new LinearLayoutManager(getContext()));
+        //mUploads = new ArrayList<>();
 
-        databaseRef = FirebaseDatabase.getInstance().getReference().child("uploads");
 
-        auth = FirebaseAuth.getInstance();
-        currentUserId = auth.getCurrentUser().getUid();
+        databaseRef = FirebaseDatabase.getInstance().getReference("uploads");
+
+        //auth = FirebaseAuth.getInstance();
+        //currentUserId = auth.getCurrentUser().getUid();
 
         return viewGon;
     }
@@ -79,7 +82,43 @@ public class FragGameON extends Fragment {
     public void onStart() {
         super.onStart();
 
-        FirebaseRecyclerOptions options = new FirebaseRecyclerOptions.Builder<Upload>()
+        FirebaseRecyclerOptions<Upload> options =
+                new FirebaseRecyclerOptions.Builder<Upload>()
+                .setQuery(databaseRef, Upload.class)
+                .build();
+
+        FirebaseRecyclerAdapter<Upload, GameOnViewholder> adapter =
+                new FirebaseRecyclerAdapter<Upload, GameOnViewholder>(options) {
+                    @Override
+                    protected void onBindViewHolder(@NonNull GameOnViewholder holder, final int position, @NonNull Upload model) {
+                        holder.tvGon.setText(model.getJudul());
+                        Picasso.get().load(model.getImageUrl()).into(holder.ivGon);
+
+                        holder.itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                String detail = getRef(position).getKey();
+
+                                Intent godetail = new Intent(getActivity(), DetailGonActivity.class);
+                                godetail.putExtra("detail", detail);
+                                getActivity().startActivity(godetail);
+                            }
+                        });
+
+                    }
+
+                    @NonNull
+                    @Override
+                    public GameOnViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                        View viewGon = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_gon, parent, false);
+                        GameOnViewholder viewholder = new GameOnViewholder(viewGon);
+                        return  viewholder;
+                    }
+                };
+
+        GonList.setAdapter(adapter);
+        adapter.startListening();
+        /*FirebaseRecyclerOptions options = new FirebaseRecyclerOptions.Builder<Upload>()
                 .setQuery(databaseRef, Upload.class)
                 .build();
 
@@ -87,25 +126,24 @@ public class FragGameON extends Fragment {
                 = new FirebaseRecyclerAdapter<Upload, GameOnViewholder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull final GameOnViewholder holder, int position, @NonNull Upload model) {
-                final String post = getRef(position).getKey();
+                //final String post = getRef(position).getKey();
                 final Upload uploadCurrent = mUploads.get(position);
 
                 databaseRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        /*if (dataSnapshot.hasChild("uploads")){
+                        if (dataSnapshot.hasChild("uploads")){
                             String image = dataSnapshot.child("imageUrl").getValue().toString();
                             String nama = dataSnapshot.child("name").getValue().toString();
 
                             holder.tvGon.setText(nama);
                             Picasso.with(getContext()).load(image).into(holder.ivGon);
-                        }*/
+                        }
 
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                             Upload upload = snapshot.getValue(Upload.class);
                             mUploads.add(upload);
-
-                            Picasso.with(getContext())
+                            Picasso.get()
                                     .load(uploadCurrent.getImageUrl())
                                     .placeholder(R.mipmap.ic_launcher)
                                     .fit()
@@ -135,18 +173,18 @@ public class FragGameON extends Fragment {
         };
 
         GonList.setAdapter(adapter);
-        adapter.startListening();
+        adapter.startListening();*/
     }
 
     public static class GameOnViewholder extends RecyclerView.ViewHolder{
         public TextView tvGon;
         public ImageView ivGon;
 
-        public GameOnViewholder(@NonNull View v){
-            super(v);
+        public GameOnViewholder(@NonNull View itemView){
+            super(itemView);
 
-            tvGon = v.findViewById(R.id.tvGon);
-            ivGon = v.findViewById(R.id.ivGon);
+            tvGon = itemView.findViewById(R.id.tvGon);
+            ivGon = itemView.findViewById(R.id.ivGon);
         }
 
     }

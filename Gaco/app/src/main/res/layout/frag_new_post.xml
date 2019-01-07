@@ -5,19 +5,29 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
+    <Toolbar
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Post Thread Baru"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:background="@color/colorBiruSeger"
+        android:id="@+id/toolNewPost">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buat Post Baru"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </Toolbar>
+
+
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:layout_below="@id/textView1"
+        android:layout_below="@+id/toolNewPost"
         android:text="Judul" />
 
     <EditText

@@ -5,19 +5,27 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbarPost"
+    <Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorBiruSeger">
-    </android.support.v7.widget.Toolbar>
+        android:background="@color/colorBiruSeger"
+        android:id="@+id/toolNewPost">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buat Post Baru"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </Toolbar>
 
     <EditText
         android:id="@+id/txtJudul"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/btnChoose"
-        android:layout_below="@id/toolbarPost"
+        android:layout_below="@id/toolNewPost"
         android:layout_centerHorizontal="true"
         android:hint="Masukkan Judul"
         android:layout_marginStart="16dp"/>
@@ -26,7 +34,7 @@
         android:id="@+id/btnChoose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbarPost"
+        android:layout_below="@id/toolNewPost"
         android:text="Choose File"/>
 
     <EditText

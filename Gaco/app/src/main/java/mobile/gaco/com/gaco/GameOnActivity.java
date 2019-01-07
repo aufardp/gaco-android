@@ -62,6 +62,8 @@ public class GameOnActivity extends AppCompatActivity {
         });
     }
 
+
+
     /*@Override
     public void onItemClick(int position) {
         Intent detail = new Intent(this, DetailGonActivity.class);
