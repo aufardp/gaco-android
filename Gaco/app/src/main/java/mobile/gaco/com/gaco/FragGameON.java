@@ -92,7 +92,12 @@ public class FragGameON extends Fragment {
                     @Override
                     protected void onBindViewHolder(@NonNull GameOnViewholder holder, final int position, @NonNull Upload model) {
                         holder.tvGon.setText(model.getJudul());
-                        Picasso.get().load(model.getImageUrl()).into(holder.ivGon);
+                        Picasso.get()
+                                .load(model.getImageUrl())
+                                .placeholder(R.mipmap.ic_launcher)
+                                .fit()
+                                .centerCrop()
+                                .into(holder.ivGon);
 
                         holder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override

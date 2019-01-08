@@ -1,26 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_list"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".DetailGonActivity">
 
-    <LinearLayout
+
+    <Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/iv_detail_Gon"
-            android:layout_width="match_parent"
-            android:layout_height="220dp"
-            app:srcCompat="@drawable/logogaco"
-            android:scaleType="centerCrop"
-            tools:ignore="ContentDescription,HardcodedText" />
+        android:id="@+id/toolDetail"
+        android:background="@color/colorBiruSeger">
 
         <TextView
             android:id="@+id/tv_judul_Gon"
@@ -34,18 +28,30 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tv_isi_Gon"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center_horizontal"
-            android:text="Text"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+    </Toolbar>
 
-    </LinearLayout>
 
-</android.support.v7.widget.CardView>
+
+    <ImageView
+        android:id="@+id/iv_detail_Gon"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        app:srcCompat="@drawable/logogaco"
+        android:scaleType="centerCrop"
+        tools:ignore="ContentDescription,HardcodedText"
+        android:layout_below="@+id/toolDetail"/>
+
+    <TextView
+        android:id="@+id/tv_isi_Gon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:text="Text"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/iv_detail_Gon"/>
+
+</RelativeLayout>
